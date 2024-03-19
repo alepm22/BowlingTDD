@@ -12,28 +12,43 @@ class Juego {
     let i=0
     for (let frame=0; frame< 10;frame++)
     {
-      if (this._rolls[i]==10) 
+      if (this.isStrike(i)) 
       {
-        score=score+10+this._rolls[i+1]+this._rolls[i+2]
+        score=score+10+this.strikeBonus(i)
         i++
       }
       else if (this.isSpare(i))
       {
-        score=score+10+this._rolls[i+2]
+        score=score+10+this.spareBonus(i)
         i=i+2
       }
       else
       {
-        score=score+this._rolls[i]+this._rolls[i+1]
+        score=score+this.sumOfBallsInFrame(i)
         i=i+2
       }
       
     }
     return score
   }
+
   isSpare(i){
     return this._rolls[i]+this._rolls[i+1]==10
   }
-  
+  isStrike(i){
+    return this._rolls[i]==10
+  }
+  spareBonus(i)
+  {
+    return this._rolls[i+2]
+  }
+  strikeBonus(i)
+  {
+    return this._rolls[i+1]+this._rolls[i+2]
+  }
+  sumOfBallsInFrame(i)
+  {
+    return this._rolls[i]+this._rolls[i+1]
+  }
 }
 export default Juego;

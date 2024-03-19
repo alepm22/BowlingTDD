@@ -17,7 +17,6 @@ describe("juego", () => {
     {
       g.roll(pins);
     }
-
   }
 
   it("Debe tirar 20 veces el jugador derribando cero pinos en cada tiro y dando score 0 ", () => {
@@ -32,7 +31,6 @@ describe("juego", () => {
     expect(g.score()).toEqual(20);
   });
 
-  
   it("En el primer tiro se saca 5, en el segundo tambien haciendo un spare, en el tercero se saca 3 y en el resto de los 20 tiros cero, haciendo que se deba obtener una puntuacion de 16", () => {
   rollSpare();
   g.roll(3)
@@ -40,17 +38,21 @@ describe("juego", () => {
   expect(g.score()).toEqual(16);
   });
 
+  function rollStrike()
+  {
+    g.roll(10)
+  }
+
   function rollSpare(){
     g.roll(5)
     g.roll(5)
   }
 
   it("Probando un strike", () => {
-    g.roll(10)
+    rollStrike()
     g.roll(3)
     g.roll(4)
     rollMany(16,0)
     expect(g.score()).toEqual(24);
   });
-
 });
