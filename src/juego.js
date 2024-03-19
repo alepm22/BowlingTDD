@@ -5,7 +5,6 @@ class Juego {
   }
   roll(pins){
     this._rolls[this._currentRoll++]=pins;
- 
   }
   score(){
     let score=0
@@ -27,7 +26,6 @@ class Juego {
         score=score+this.sumOfBallsInFrame(i)
         i=i+2
       }
-      
     }
     return score
   }
