@@ -55,6 +55,7 @@ describe("juego", () => {
     rollMany(16,0)
     expect(g.score()).toEqual(24);
   });
+  
   it("Ahora Probaremos el juego completo", () => {
     rollMany(12,10)
     expect(g.score()).toEqual(300);
