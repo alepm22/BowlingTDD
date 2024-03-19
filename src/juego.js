@@ -1,10 +1,12 @@
 class Juego {
   constructor() {
-  }
-  roll(pins){
-  }
-  score(){
-    return 0
-  }
+    this._score = 0;
+}
+roll(pins){
+    this._score= this._score+pins
+}
+score(){
+  return this._score
+}
 }
 export default Juego;
